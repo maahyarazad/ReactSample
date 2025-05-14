@@ -3,6 +3,7 @@ import HomeSlider from './Components/HomeSlider/HomeSlider';
 import ServiceGrid from './Components/ServiceGrid/ServiceGrid';
 import axios from 'axios';
 import gsap from 'gsap'
+import TestimonialCarousel from './Components/TestemonialCarousel/TestemonialCarousel';
 
 const Home = () => {
     const [homeSliders, setHomeSliders] = useState([]);
@@ -102,6 +103,10 @@ const Home = () => {
                     containerTitle={"Industries we help"}
                     serviceKeyName={"serviceCards_1"} 
                     gridClass={"col-12 col-sm-6 col-lg-4 mb-4"} />
+            </div>
+
+            <div className="container mx-auto px-4 py-8">
+                <TestimonialCarousel/>
             </div>
 
             <div className="container mx-auto px-4 py-8">
