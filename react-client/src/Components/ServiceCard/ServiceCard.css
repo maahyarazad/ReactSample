@@ -7,28 +7,22 @@
   text-decoration: none;
 }
 
-.iot-card:hover {
+.iot-card--hover:hover {
   background-image: linear-gradient(to bottom right, var(--primary-color), white); 
   color: white;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-
 }
 
-.iot-card:hover .iot-card__title,
-.iot-card:hover .iot-card__text,
-.iot-card:hover .iot-card__link {
+.iot-card--hover:hover .iot-card__title,
+.iot-card--hover:hover .iot-card__text,
+.iot-card--hover:hover .iot-card__link {
   color: white;
 }
-
-/* .iot-card:hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-} */
 
 .iot-card__image {
   margin-bottom: 1rem;
   width: 56px;
   height: 56px;
-  background-color: var(--primary-color);
 }
 
 .iot-card__title {

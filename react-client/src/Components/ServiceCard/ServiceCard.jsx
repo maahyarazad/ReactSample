@@ -1,6 +1,7 @@
 import React from "react";
 import "./ServiceCard.css";
 import { FaCheck } from "react-icons/fa";
+
 const ServiceCard = ({
     href,
     imageSrc,
@@ -10,14 +11,16 @@ const ServiceCard = ({
     services,
     linkText,
     showServicesList = true,
-    clickable = false
+    clickable = false,
+    hoverEffect = false, 
 }) => {
     
+    const hoverClass = hoverEffect ? "iot-card--hover" : "";
+
     return (
         <>
-            {clickable
-                ?
-                <a href={href} className="iot-card">
+            {clickable ? (
+                <a href={href} className={`iot-card ${hoverClass}`}>
                     <div className="iot-card__image">
                         <img src={imageSrc} alt={imageAlt} width={56} height={56} />
                     </div>
@@ -37,8 +40,8 @@ const ServiceCard = ({
                         <span>→</span>
                     </a>
                 </a>
-                :
-                <div className="iot-card">
+            ) : (
+                <div className={`iot-card ${hoverClass}`}>
                     <div className="iot-card__image">
                         <img src={imageSrc} alt={imageAlt} width={56} height={56} />
                     </div>
@@ -48,22 +51,32 @@ const ServiceCard = ({
                         {showServicesList && services?.length > 0 && (
                             <ul className="iot-card__list">
                                 {services.map((service, index) => (
-                                    <div className="d-block flex-grow-1">
-                                        
-                                        <li key={index}><FaCheck className="check-icon"/> {service}</li>
+                                    <div className="d-block flex-grow-1" key={index}>
+                                        <li>
+                                            <FaCheck className="check-icon" /> {service}
+                                        </li>
                                     </div>
-
                                 ))}
                             </ul>
                         )}
                     </div>
-                    <a href={href} className="iot-card__link" >
+                   {
+                    !linkText?.trim() ? (
+                       
+                        <></>  
+                    ) : (
+
+                        <a href={href} className="iot-card__link">
                         {linkText}
                         <span>→</span>
-                    </a>
-                </div>
-            }
+                        </a>
+                        )
+                    }
 
+                    
+                    
+                </div>
+            )}
         </>
     );
 };

@@ -1,0 +1,7 @@
+.service-grid-title{
+    font-size: 3rem;
+}
+
+.highlighted-word{
+    color: var(--primary-color);
+}
