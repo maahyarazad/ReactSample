@@ -98,7 +98,7 @@ const Home = () => {
       ))}
 
       <div className="container mx-auto px-4 py-8">
-        <ServiceGrid serviceKey={"serviceCards_2"} gridClassNames = {"col-12 col-sm-6 col-lg-6 mb-4"}/>
+        <ServiceGrid serviceKeyName={"serviceCards_2"} gridClass = {"col-12 col-sm-6 col-lg-6 mb-4"}/>
       </div>
     </>
   );
