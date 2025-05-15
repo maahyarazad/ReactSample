@@ -4,8 +4,8 @@
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px;
-    background-color: transparent!important; 
-    color: white !important; 
+    background-color: transparent !important;
+    color: white !important;
 }
 
 .request-form-section .form-control.is-invalid,
@@ -17,22 +17,21 @@
 
     border-radius: 0;
     box-shadow: none;
-    background-color: transparent!important; 
-    color: white !important; 
+    background-color: transparent !important;
+    color: white !important;
 
 }
 
 
-.request-form-section input:not(:placeholder-shown){
-    background-color: transparent!important; 
-    color: white !important; 
+.request-form-section input:not(:placeholder-shown) {
+    background-color: transparent !important;
+    color: white !important;
 }
 
 .request-form-section input::placeholder,
-.request-form-section textarea::placeholder
-{
-    background-color: transparent!important; 
-    color: gray !important; 
+.request-form-section textarea::placeholder {
+    background-color: transparent !important;
+    color: gray !important;
 }
 
 
@@ -46,8 +45,8 @@
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid var(--primary-color);
-    background-color: transparent!important; 
-    color: white !important; 
+    background-color: transparent !important;
+    color: white !important;
 }
 
 .request-form-section p,
@@ -74,13 +73,39 @@
     color: var(--primary-color);
 }
 
-.attachment-button{
-    background: transparent !important;
-    color: white;
-    
+
+
+
+.request-form-section li {
+    font-size: 1.5rem;
 }
 
-.attachment-button:hover{
+
+.attachment-button {
     background: transparent !important;
     color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.attachment-button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 5px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.attachment-button:hover::after{
+  width: 100%;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .request-form-section li {
+        font-size: inherit !important;
+    }
 }

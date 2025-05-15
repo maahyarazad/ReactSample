@@ -11,7 +11,7 @@ const BackToTop = () => {
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: -10,
       behavior: 'smooth'
     });
   };

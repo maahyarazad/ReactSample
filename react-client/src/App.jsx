@@ -8,7 +8,8 @@ import BackToTop from './Components/BackToTop/BackToTop';
 
 import Services from './Pages/Services';
 import Footer from './Components/Footer/Footer';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
 
   const handleLanguageChange = (value) => {
@@ -18,13 +19,27 @@ const App = () => {
   return (
 
     <BrowserRouter>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
       <Navbar onLanguageChange={handleLanguageChange} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
       </Routes>
-      <Footer/>
+      <Footer />
       <BackToTop />
     </BrowserRouter>
   );

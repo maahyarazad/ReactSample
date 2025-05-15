@@ -6,6 +6,8 @@ import CustomInput from "../CustomInputs/CustomInput";
 import CustomTextarea from "../CustomInputs/CustomTextArea";
 import './ContactUsForm.css';
 import { Paperclip } from 'lucide-react';
+import { toast } from 'react-toastify';
+
 
 const ContactForm = () => {
     const fileInputRef = useRef(null);
@@ -48,12 +50,11 @@ const ContactForm = () => {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            alert("Form submitted successfully!");
-            console.log(response.data);
+            
+            toast.success(response.data)
             resetForm();
         } catch (error) {
-            alert("There was an error submitting the form.");
-            console.error(error);
+            toast.error(error)
         } finally {
             setSubmitting(false);
         }
@@ -110,13 +111,13 @@ const ContactForm = () => {
                                     />
 
 
-                                    <button
-                                        type="button"
+                                    <div
+                                        
                                         onClick={triggerFileInput}
-                                        className="attachment-button btn">
+                                        className="attachment-button">
                                             <Paperclip size={18} />
                                         Attach File
-                                    </button>
+                                    </div>
 
                                     <ErrorMessage name="attachment" component="span" className="text-danger d-block mt-1" />
 
