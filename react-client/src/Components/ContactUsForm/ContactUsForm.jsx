@@ -51,7 +51,7 @@ const ContactForm = () => {
                 },
             });
             
-            toast.success(response.data)
+            toast.success(response.data.message)
             resetForm();
         } catch (error) {
             toast.error(error)
@@ -131,7 +131,7 @@ const ContactForm = () => {
                                 <p className="form-text mt-3">
                                     By submitting, you agree to our{" "}
                                     <a
-                                        href="https://sumatosoft.com/privacy-policy"
+                                        href="https://google.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-decoration-underline">
