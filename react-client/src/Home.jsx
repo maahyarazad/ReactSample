@@ -4,6 +4,7 @@ import ServiceGrid from './Components/ServiceGrid/ServiceGrid';
 import axios from 'axios';
 import gsap from 'gsap'
 import TestimonialCarousel from './Components/TestemonialCarousel/TestemonialCarousel';
+import ContactUsForm from './Components/ContactUsForm/ContactUsForm'
 
 const Home = () => {
     const [homeSliders, setHomeSliders] = useState([]);
@@ -115,6 +116,8 @@ const Home = () => {
                     serviceKeyName={"serviceCards_2"} 
                     gridClass={"col-12 col-sm-6 col-lg-6 mb-4"} />
             </div>
+
+            <ContactUsForm/>
         </>
     );
 };
