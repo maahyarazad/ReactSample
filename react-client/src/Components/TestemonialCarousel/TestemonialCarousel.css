@@ -1,7 +1,15 @@
 .testimonial-slide {
     display: flex !important;
     flex-direction: row;
+        background: rgba(255, 255, 255, 0.1); /* semi-transparent white */
+    backdrop-filter: blur(5px);          /* the actual blur/glass effect */
+    -webkit-backdrop-filter: blur(5px);  /* Safari support */
+    border-radius: 5px;
+    padding: 1em;
+    color: #000;
 }
+
+
 
 
 /* Left content (review text) */
@@ -14,7 +22,6 @@
 
 .testimonial-review-text {
     font-size: 16px;
-    color: #333;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -46,18 +53,15 @@
 
 .testimonial-author-text {
     font-size: 14px;
-    color: #555;
 }
 
 .testimonial-author-name {
     font-weight: bold;
     font-size: 16px;
-    color: #222;
 }
 
 .testimonial-author-position {
     font-style: italic;
-    color: #777;
     font-size: 14px;
 }
 

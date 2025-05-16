@@ -1,25 +1,40 @@
-// BackToTop.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './BackToTop.css';
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const circleRef = useRef(null);
 
   const toggleVisibility = () => {
     setIsVisible(window.scrollY > 300);
   };
 
+  const handleScroll = () => {
+    toggleVisibility();
+
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = docHeight > 0 ? scrollTop / docHeight : 0;
+    setScrollProgress(scrolled);
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
-      top: -10,
-      behavior: 'smooth'
+      top: 0,
+      behavior: 'smooth',
     });
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Circle constants
+  const radius = 28;
+  const circumference = 2 * Math.PI * radius;
+  const dashOffset = circumference * (1 - scrollProgress);
 
   return (
     <button
@@ -27,7 +42,26 @@ const BackToTop = () => {
       onClick={scrollToTop}
       aria-label="Scroll to top"
     >
-      ↑
+      <svg className="progress-ring" width="60" height="60">
+        <circle
+          className="progress-ring__circle"
+          stroke="white"
+          strokeWidth="4"
+          fill="transparent"
+          r={radius}
+          cx="30"
+          cy="30"
+          style={{
+            strokeDasharray: circumference,
+            strokeDashoffset: dashOffset,
+            transition: 'stroke-dashoffset 0.3s ease',
+            transform: 'rotate(-90deg)',
+            transformOrigin: '50% 50%',
+          }}
+          ref={circleRef}
+        />
+      </svg>
+      <span className="arrow">↑</span>
     </button>
   );
 };

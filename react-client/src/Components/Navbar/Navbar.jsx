@@ -7,6 +7,10 @@ import { FaTimes } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { toast } from 'react-toastify';
+// React Component
+import Burger from '@animated-burgers/burger-rotate' 
+// don't forget the styles
+import '@animated-burgers/burger-rotate/dist/styles.css' 
 
 const Navbar = ({ onLanguageChange }) => {
 
@@ -101,6 +105,10 @@ const Navbar = ({ onLanguageChange }) => {
                 <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
                     <FaBars size={24} color="#333" />
                 </button>
+
+                {/* <Burger isOpen={menuOpen} direction="right">
+
+                </Burger> */}
 
                 {/* Desktop Nav Links */}
                 <ul className="navbar-links desktop-only">

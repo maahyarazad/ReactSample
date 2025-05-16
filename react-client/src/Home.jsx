@@ -5,6 +5,9 @@ import axios from 'axios';
 import gsap from 'gsap'
 import TestimonialCarousel from './Components/TestemonialCarousel/TestemonialCarousel';
 import ContactUsForm from './Components/ContactUsForm/ContactUsForm'
+import ParticleJsContainer from './Components/ParticleJsContainer/ParticleJsContainer';
+import TypeWriter from './Components/TypeWriter/TypeWriter';
+
 
 const Home = () => {
     const [homeSliders, setHomeSliders] = useState([]);
@@ -82,13 +85,11 @@ const Home = () => {
         return <div>Loading...</div>;
     }
 
-    // if (error) {
-    //   return <div>{error}</div>;
-    // }
 
     return (
         <>
-            {homeSliders.map((slider) => (
+            
+            {/* {homeSliders.map((slider) => (
                 <HomeSlider
                     key={slider.id}
                     id={`home-slide-${slider.id}`}
@@ -97,8 +98,9 @@ const Home = () => {
                     image={slider.image}
                     ref={(el) => (sliderRefs.current[slider.id - 1] = el)}
                 />
-            ))}
+            ))} */}
 
+            <TypeWriter/>
             <div className="container mx-auto px-4 py-8">
                 <ServiceGrid 
                     containerTitle={"Industries we help"}
@@ -117,7 +119,7 @@ const Home = () => {
                     gridClass={"col-12 col-sm-6 col-lg-6 mb-4"} />
             </div>
 
-            <ContactUsForm/>
+                        <ContactUsForm/>
         </>
     );
 };

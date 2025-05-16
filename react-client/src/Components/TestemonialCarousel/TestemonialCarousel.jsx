@@ -36,16 +36,17 @@ const TestimonialCarousel = () => {
         touchThreshold: 10, // Touch sensitivity for swipe
         autoplay: true, // Enable auto change
         autoplaySpeed: 99999999, // Time between slide transitions in ms (3 seconds)
-         prevArrow: (
-            <div className="custom-arrow prev-arrow">
-                <span>←</span>
-            </div>
-        ), 
-        nextArrow: (
-            <div className="custom-arrow next-arrow">
-                <span>→</span>
-            </div>
-        ),
+        arrows: false,
+        //  prevArrow: (
+        //     <div className="custom-arrow prev-arrow">
+        //         <span>←</span>
+        //     </div>
+        // ), 
+        // nextArrow: (
+        //     <div className="custom-arrow next-arrow">
+        //         <span>→</span>
+        //     </div>
+        // ),
         responsive: [
             {
                 breakpoint: 768, // Change slides visible for smaller screen sizes

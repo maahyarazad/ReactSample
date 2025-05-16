@@ -10,6 +10,7 @@ import Services from './Pages/Services';
 import Footer from './Components/Footer/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ParticleJsContainer from './Components/ParticleJsContainer/ParticleJsContainer';
 const App = () => {
 
   const handleLanguageChange = (value) => {
@@ -34,6 +35,7 @@ const App = () => {
       />
 
       <Navbar onLanguageChange={handleLanguageChange} />
+      <ParticleJsContainer></ParticleJsContainer>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

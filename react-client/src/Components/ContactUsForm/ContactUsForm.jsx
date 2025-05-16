@@ -63,7 +63,7 @@ const ContactForm = () => {
     return (
         <section className="container py-5 request-form-section">
 
-            <div class="row">
+            <div className="row">
                 <div class="col-12 col-md-6 p-4">
 
                     <h2 className="h3 fw-bold mb-2 lets-start">Let’s start</h2>
@@ -77,8 +77,8 @@ const ContactForm = () => {
 
                     <p className="mb-4">
                         If you have any questions, email us at
-                        <a href="mailto:info@sumatosoft.com" className="ms-1 text-decoration-underline text-primary">
-                            info@sumatosoft.com
+                        <a href="mailto:info@oursite.com" className="ms-1 text-decoration-underline text-primary">
+                            info@oursite.com
                         </a>
                     </p>
                 </div>

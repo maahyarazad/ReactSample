@@ -2,13 +2,14 @@
 .navbar {
     position: sticky;
     height: 10vh;
+    width: 100vw;
     top: 0;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #000311;
+    background: transparent;
     z-index: 100;
     transition: all 120ms ease-in-out;
 }
@@ -25,17 +26,6 @@
 }
 
 
-
-.navbar:not(.navbar-scrolled) a:hover {
-  transition: all 120ms ease-in-out;
-    color: var(--primary-color) !important;
-}
-
-.navbar.navbar-scrolled a, .navbar.navbar-scrolled div {
-    color: black !important;
-    transition: all 120ms ease-in-out;
-}
-
 .navbar.navbar-scrolled {
     transition: all 120ms ease-in-out;
     height: 8vh;
@@ -44,23 +34,47 @@
 
 
 .navbar.navbar-scrolled .navbar-links.desktop-only a {
-  font-size: 1.2em;
-  padding-left: 1.2em;
-  color: black !important;
-  transition: all 120ms ease-in-out;
+    font-size: 1.2em;
+    padding: 0.5em 1em 0.5em 1em;
+    color: black !important;
+    transition: all 120ms ease-in-out;
 }
+
+.navbar.navbar-scrolled a,
+.navbar.navbar-scrolled div {
+    color: black !important;
+    transition: all 120ms ease-in-out;
+}
+
+.navbar.navbar-scrolled .navbar-links.desktop-only a:hover {
+    transition: all 120ms ease-in-out;
+    background: rgba(255, 255, 255, 0.284);
+    /* semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* the actual blur/glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 5px;
+    color: black !important;
+}
+
 
 
 .navbar:not(.navbar-scrolled) .navbar-links.desktop-only a {
-  font-size: 1.2em;
-  padding-left: 1.2em;
-  color: #fff !important;
-  transition: all 120ms ease-in-out;
+    font-size: 1.2em;
+    padding: 0.5em 1em 0.5em 1em;
+    color: #fff !important;
+    transition: all 120ms ease-in-out;
 }
 
 .navbar:not(.navbar-scrolled) .navbar-links.desktop-only a:hover {
-  transition: all 120ms ease-in-out;
-    color: var(--primary-color) !important;
+    transition: all 120ms ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    /* semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* the actual blur/glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 5px;
+    color: black !important;
 }
 
 
