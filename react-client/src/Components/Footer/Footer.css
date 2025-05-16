@@ -21,11 +21,12 @@
   gap: 15px;
 }
 
-.footer-logo img {
-  width: 50px;
-  height: 50px;
+.footer .footer-container .footer-company .footer-logo {
+  max-width: 150px !important;
+  max-height: 100px !important;
   object-fit: contain;
 }
+
 
 .footer-about {
   font-size: 14px;
@@ -116,5 +117,12 @@
 
   .footer-bottom {
     padding: 10px;
+  }
+
+  .footer .footer-container .footer-company  {
+            display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
   }
 }

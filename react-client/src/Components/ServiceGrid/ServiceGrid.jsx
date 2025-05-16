@@ -27,7 +27,7 @@ const ServiceGrid = ({ containerTitle, serviceKeyName, gridClass }) => {
     if (error) return <p className="text-center text-red-500">{error}</p>;
 
     return (
-        <div className="p-4">
+        <div className="p-0 p-md-4">
             <h2 className="py-4 text-center service-grid-title">
                 {containerTitle.split(" ")[0]}{" "}
                 <span className="highlighted-word">{containerTitle.split(" ")[1]}</span>{" "}

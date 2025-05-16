@@ -33,7 +33,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-company">
-          <img src={footerData.companyLogo} alt="Company Logo" className="footer-logo" style={{ width: '50px', height: '50px' }}/>
+          <img src={footerData.companyLogo} alt="Company Logo" className="footer-logo"/>
           <p>{footerData.about}</p>
         </div>
         <div className="footer-social">
