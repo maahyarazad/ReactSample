@@ -14,9 +14,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import ParticleJsContainer from './Components/ParticleJsContainer/ParticleJsContainer';
 const App = () => {
     const [siteData, setSiteData] = useState(null);
-
+    const [language, setLanguage] = useState('EN');
+    
+    const server_endpoint = process.env.REACT_APP_SITE_DATA;
     useEffect(() => {
-        axios.get(process.env.REACT_APP_SITE_DATA)
+        axios.get(`${server_endpoint}?lang=${language}`)
             .then((response) => {
                 setSiteData(response.data);
 
@@ -24,16 +26,13 @@ const App = () => {
             .catch((error) => {
                 console.error('Error fetching footer data:', error);
             });
-    }, []);
+    }, [language]);
 
-    useEffect(() => {
-
-        console.log('siteData updated:', siteData);
-    }, [siteData]);
+    useEffect(() => {}, [siteData]);
 
 
     const handleLanguageChange = (value) => {
-        console.log(value);
+       setLanguage(value);
     }
 
     if (!siteData) {
@@ -58,11 +57,12 @@ const App = () => {
             />
 
             <Navbar onLanguageChange={handleLanguageChange} 
-                navbarLinks={siteData.navLinks} 
-                companyName={siteData.companyName}/>
+                            navbarLinks={siteData.navLinks}
+                            currentlanguage={language} 
+                            companyName={siteData.companyName}/>
             <ParticleJsContainer></ParticleJsContainer>
             <Routes>
-                <Route path="/" element={<Home siteData={siteData}/>} />
+                <Route path="/" element={<Home siteData={siteData} />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
             </Routes>

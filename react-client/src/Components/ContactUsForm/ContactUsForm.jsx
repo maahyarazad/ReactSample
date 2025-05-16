@@ -64,7 +64,7 @@ const ContactForm = () => {
         <section className="container py-5 request-form-section">
 
             <div className="row">
-                <div class="col-12 col-md-6 p-4">
+                <div className="col-12 col-md-6 p-4">
 
                     <h2 className="h3 fw-bold mb-2 lets-start">Let’s start</h2>
                     <p className="fw-semibold mb-3">What’s next</p>
@@ -82,7 +82,7 @@ const ContactForm = () => {
                         </a>
                     </p>
                 </div>
-                <div class="col-12 col-md-6 p-4">
+                <div className="col-12 col-md-6 p-4">
 
                     <Formik
                         initialValues={initialValues}

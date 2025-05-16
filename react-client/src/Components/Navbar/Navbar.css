@@ -266,3 +266,7 @@ input:checked+.slider::before {
         background-color: var(--primary-contrast-color);
     }
 }
+
+.switch input:checked + .slider {
+  background-color: var(--primary-contrast-color); /* blue when checked */
+}

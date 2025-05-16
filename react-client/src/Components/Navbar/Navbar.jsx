@@ -10,12 +10,12 @@ import Burger from '@animated-burgers/burger-rotate'
 // don't forget the styles
 import '@animated-burgers/burger-rotate/dist/styles.css'
 
-const Navbar = ({ companyName, navbarLinks, onLanguageChange }) => {
+const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage }) => {
 
     gsap.registerPlugin(ScrollToPlugin);
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [language, setLanguage] = useState('EN');
+    const [language, setLanguage] = useState(currentlanguage);
     const [scrolled, setScrolled] = useState(false);
 
     // Toggle the mobile menu
