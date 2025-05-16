@@ -1,30 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Slider from 'react-slick'; // Import react-slick
+
+import Slider from 'react-slick'; 
 import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css'; // Import slick carousel styles
+import 'slick-carousel/slick/slick-theme.css'; 
 import './TestemonialCarousel.css';
 
-const TestimonialCarousel = () => {
-    const [testimonials, setTestimonials] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        axios
-            .get(process.env.REACT_APP_SITE_DATA)
-            .then((response) => {
-                setTestimonials(response.data.testimonials);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError("Failed to load testimonials.");
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+const TestimonialCarousel = ({ data }) => {
+    if (!data) return null
 
     const settings = {
         dots: true, // Show navigation dots
@@ -66,7 +47,7 @@ const TestimonialCarousel = () => {
 
     return (
         <Slider {...settings}> {/* Use Slider component from react-slick */}
-            {testimonials.map((testimonial, index) => (
+            {data.map((testimonial, index) => (
                 <div key={index} className="testimonial-slide">
                     <div className="testimonial-left-content">
                         <div className="testimonial-review-text">

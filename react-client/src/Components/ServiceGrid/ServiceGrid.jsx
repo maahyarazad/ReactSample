@@ -1,30 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import ServiceCard from "../ServiceCard/ServiceCard";
 import './ServiceGrid.css';
-const ServiceGrid = ({ containerTitle, serviceKeyName, gridClass }) => {
-    const [services, setServices] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+const ServiceGrid = ({ data, containerTitle, serviceKeyName, gridClass }) => {
 
-
-    useEffect(() => {
-        axios
-            .get(process.env.REACT_APP_SITE_DATA)
-            .then((response) => {
-
-                setServices(response.data[serviceKeyName]);
-                console.log(serviceKeyName)
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError("Failed to load services.");
-                setLoading(false);
-            });
-    }, [serviceKeyName]);
-
-    if (loading) return <p className="text-center">Loading...</p>;
-    if (error) return <p className="text-center text-red-500">{error}</p>;
+    if (!data) return null;
 
     return (
         <div className="p-0 p-md-4">
@@ -34,7 +13,7 @@ const ServiceGrid = ({ containerTitle, serviceKeyName, gridClass }) => {
                 {containerTitle.split(" ").slice(2).join(" ")}
             </h2>
             <div className="row">
-                {services.map((service, index) => (
+                {data.map((service, index) => (
                     <div className={gridClass} key={index}>
                         <ServiceCard {...service} />
                     </div>

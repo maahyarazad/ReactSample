@@ -2,11 +2,12 @@
     height: 90vh;
     display: flex;
     justify-content: center;
+     align-items: center;
 }
 
 .typewriter{
     display: flex;
-    align-self: center;
+    /* align-self: center; */
 }
 
 .typewriter p {

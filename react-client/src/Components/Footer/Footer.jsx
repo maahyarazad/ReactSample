@@ -1,33 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import './Footer.css';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-const Footer = () => {
-    const [footerData, setFooterData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+const Footer = ({ footerData }) => {
 
-    useEffect(() => {
-        axios.get(process.env.REACT_APP_SITE_DATA)
-            .then((response) => {
-                console.log(response);
-                setFooterData(response.data.footer);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching footer data:', error);
-                setError('Error fetching data. Please try again later.');
-                setLoading(false);
-            });
-    }, []);
+    useEffect(() => {}, [footerData]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>{error}</div>;
+    if (!footerData) {
+        return null;
     }
 
     const getSocialIcon = (platform) => {

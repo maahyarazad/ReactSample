@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import './Navbar.css';
-import { FaTimes } from 'react-icons/fa';
+
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { toast } from 'react-toastify';
@@ -11,15 +10,12 @@ import Burger from '@animated-burgers/burger-rotate'
 // don't forget the styles
 import '@animated-burgers/burger-rotate/dist/styles.css'
 
-const Navbar = ({ onLanguageChange }) => {
+const Navbar = ({ companyName, navbarLinks, onLanguageChange }) => {
 
     gsap.registerPlugin(ScrollToPlugin);
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [language, setLanguage] = useState('EN');
-    const [companyData, setCompanyData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [scrolled, setScrolled] = useState(false);
 
     // Toggle the mobile menu
@@ -55,22 +51,9 @@ const Navbar = ({ onLanguageChange }) => {
         }
     };
 
+    useEffect(() => { }, [companyName, navbarLinks]);
 
 
-    useEffect(() => {
-        axios.get(process.env.REACT_APP_SITE_DATA)
-            .then((response) => {
-                setCompanyData(response.data);
-                setLoading(false);
-
-
-            })
-            .catch((error) => {
-                console.error('Error fetching company data:', error);
-                setError('Error fetching data. Please try again later.');
-                setLoading(false);
-            });
-    }, []);
 
     useEffect(() => {
         const onScroll = () => {
@@ -81,21 +64,13 @@ const Navbar = ({ onLanguageChange }) => {
         return () => window.removeEventListener('scroll', onScroll);
     }, [])
 
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    // Todo Use FunctionalErrorBoundry
-    if (error) {
-        return <div>{error}</div>;
-    }
+    if (!navbarLinks || !companyName) return null
 
     return (
         <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
             <div className="navbar-section-left">
                 <div className="navbar-logo">
-                    {companyData && companyData.companyName}
+                    {companyName && companyName}
                 </div>
             </div>
 
@@ -111,7 +86,7 @@ const Navbar = ({ onLanguageChange }) => {
 
                 {/* Desktop Nav Links */}
                 <ul className="navbar-links desktop-only">
-                    {companyData?.navLinks?.map((link) => (
+                    {navbarLinks?.map((link) => (
                         <li key={link.path}>
                             {/* <Link to={link.path}>{link.label}</Link> */}
 
@@ -135,7 +110,7 @@ const Navbar = ({ onLanguageChange }) => {
             {/* Slide-out Mobile Menu */}
             <div className={`mobile-menu ${menuOpen ? 'open' : ''} ${scrolled ? 'scrolled' : ''}`}>
                 <ul className="mobile-links">
-                    {companyData?.navLinks?.map((link) => (
+                    {navbarLinks?.map((link) => (
                         <li key={link.path}>
                             <Link to={link.path} onClick={toggleMenu}>{link.label}</Link>
                         </li>

@@ -1,7 +1,7 @@
 .testimonial-slide {
     display: flex !important;
     flex-direction: row;
-        background: rgba(255, 255, 255, 0.1); /* semi-transparent white */
+    background: rgba(255, 255, 255, 0.1); /* semi-transparent white */
     backdrop-filter: blur(5px);          /* the actual blur/glass effect */
     -webkit-backdrop-filter: blur(5px);  /* Safari support */
     border-radius: 5px;

@@ -243,7 +243,7 @@ input:checked+.slider::before {
 
 
 /* Responsive rules */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .desktop-only {
         display: none;
     }
