@@ -5,85 +5,84 @@ import axios from 'axios';
 import gsap from 'gsap'
 import TestimonialCarousel from './Components/TestemonialCarousel/TestemonialCarousel';
 import ContactUsForm from './Components/ContactUsForm/ContactUsForm'
-import ParticleJsContainer from './Components/ParticleJsContainer/ParticleJsContainer';
 import TypeWriter from './Components/TypeWriter/TypeWriter';
 
 
 const Home = () => {
-    const [homeSliders, setHomeSliders] = useState([]);
+    // const [homeSliders, setHomeSliders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(true);
     const sliderRefs = useRef([]);
 
-    useEffect(() => {
-        axios.get(process.env.REACT_APP_SITE_DATA)
-            .then((response) => {
-                console.log(response)
-                setHomeSliders(response.data.homeSliders);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error('Error fetching data:', err);
-                setError(err);
-                setLoading(false);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get(process.env.REACT_APP_SITE_DATA)
+    //         .then((response) => {
+    //             console.log(response)
+    //             setHomeSliders(response.data.homeSliders);
+    //             setLoading(false);
+    //         })
+    //         .catch((err) => {
+    //             console.error('Error fetching data:', err);
+    //             setError(err);
+    //             setLoading(false);
+    //         });
+    // }, []);
 
 
     // Observe AFTER the sliders are rendered
-    useEffect(() => {
-        if (!homeSliders.length) return;
+    // useEffect(() => {
+    //     if (!homeSliders.length) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     const el = entry.target;
 
-                        // Animate title from left
-                        const title = el.querySelector('.slider-title');
-                        gsap.fromTo(title,
-                            { x: -100, opacity: 0 },
-                            { x: 0, opacity: 1, duration: 1, ease: 'power2.out' }
-                        );
+    //                     // Animate title from left
+    //                     const title = el.querySelector('.slider-title');
+    //                     gsap.fromTo(title,
+    //                         { x: -100, opacity: 0 },
+    //                         { x: 0, opacity: 1, duration: 1, ease: 'power2.out' }
+    //                     );
 
-                        // Animate text from right
-                        const text = el.querySelector('.slider-text');
-                        gsap.fromTo(text,
-                            { x: 100, opacity: 0 },
-                            { x: 0, opacity: 1, duration: 1, ease: 'power2.out', delay: 0.2 }
-                        );
+    //                     // Animate text from right
+    //                     const text = el.querySelector('.slider-text');
+    //                     gsap.fromTo(text,
+    //                         { x: 100, opacity: 0 },
+    //                         { x: 0, opacity: 1, duration: 1, ease: 'power2.out', delay: 0.2 }
+    //                     );
 
-                        const button = el.querySelector('.get-started-button');
-                        gsap.fromTo(button,
-                            { y: -100, opacity: 0 },
-                            { y: 0, opacity: 1, duration: 1, ease: 'power2.out', delay: 0.2 }
-                        );
+    //                     const button = el.querySelector('.get-started-button');
+    //                     gsap.fromTo(button,
+    //                         { y: -100, opacity: 0 },
+    //                         { y: 0, opacity: 1, duration: 1, ease: 'power2.out', delay: 0.2 }
+    //                     );
 
-                        observer.unobserve(el); // run once
+    //                     observer.unobserve(el); // run once
 
-                        observer.unobserve(entry.target); // Animate only once
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
+    //                     observer.unobserve(entry.target); // Animate only once
+    //                 }
+    //             });
+    //         },
+    //         { threshold: 0.5 }
+    //     );
 
-        sliderRefs.current.forEach((el) => {
-            if (el) observer.observe(el);
-        });
+    //     sliderRefs.current.forEach((el) => {
+    //         if (el) observer.observe(el);
+    //     });
 
-        return () => {
-            sliderRefs.current.forEach((el) => {
-                if (el) observer.unobserve(el);
-            });
-        };
-    }, [homeSliders]);
+    //     return () => {
+    //         sliderRefs.current.forEach((el) => {
+    //             if (el) observer.unobserve(el);
+    //         });
+    //     };
+    // }, [homeSliders]);
 
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+        // if (loading) {
+        //     return <div>Loading...</div>;
+        // }
 
 
     return (

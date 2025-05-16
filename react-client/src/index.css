@@ -3,10 +3,17 @@ body {
   font-family: 'Segoe UI', 'SegoeUI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary-color: #0D47A1
+  --primary-color: #0D47A1;
+  --primary-contrast-color: #fc6f03;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.btn-primary-contrast{
+  background-color: var(--primary-contrast-color) !important;
+  color: aliceblue !important;
 }

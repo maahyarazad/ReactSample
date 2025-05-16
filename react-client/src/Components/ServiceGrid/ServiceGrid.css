@@ -1,7 +1,8 @@
 .service-grid-title{
     font-size: 3rem;
+    color: aliceblue;
 }
 
 .highlighted-word{
-    color: white;
+    color: var(--primary-contrast-color);
 }

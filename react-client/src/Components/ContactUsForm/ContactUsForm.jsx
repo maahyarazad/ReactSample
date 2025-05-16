@@ -66,7 +66,7 @@ const ContactForm = () => {
             <div className="row">
                 <div class="col-12 col-md-6 p-4">
 
-                    <h2 className="h3 fw-bold mb-2 lets-start text-white">Let’s start</h2>
+                    <h2 className="h3 fw-bold mb-2 lets-start">Let’s start</h2>
                     <p className="fw-semibold mb-3">What’s next</p>
                     <ul className="mb-4 ps-3 list-unstyled">
                         <li>1. Share your requirements</li>
@@ -121,8 +121,8 @@ const ContactForm = () => {
 
                                     <ErrorMessage name="attachment" component="span" className="text-danger d-block mt-1" />
 
-                                    <button type="submit" className="btn btn-primary" style={{backgroundColor: 'var(--primary-color)'}} disabled={isSubmitting}>
-                                        {isSubmitting ? "Sending..." : "Send"}
+                                    <button type="submit" className="btn btn-primary-contrast" style={{backgroundColor: 'var(--primary-color)'}} disabled={isSubmitting}>
+                                        {isSubmitting ? "Sending..." : "Send Your Request"}
                                     </button>
                                 </div>
 

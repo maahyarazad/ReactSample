@@ -71,7 +71,7 @@
 
 .lets-start {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--primary-contrast-color) !important;
 }
 
 

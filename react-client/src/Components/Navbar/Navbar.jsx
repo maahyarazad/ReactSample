@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Navbar.css';
-import { FaBars } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { toast } from 'react-toastify';
 // React Component
-import Burger from '@animated-burgers/burger-rotate' 
+import Burger from '@animated-burgers/burger-rotate'
 // don't forget the styles
-import '@animated-burgers/burger-rotate/dist/styles.css' 
+import '@animated-burgers/burger-rotate/dist/styles.css'
 
 const Navbar = ({ onLanguageChange }) => {
 
@@ -73,7 +72,7 @@ const Navbar = ({ onLanguageChange }) => {
             });
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         const onScroll = () => {
             setScrolled(window.scrollY > 0);
         };
@@ -102,13 +101,13 @@ const Navbar = ({ onLanguageChange }) => {
 
             <div className="navbar-section-middle">
 
-                <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
-                    <FaBars size={24} color="#333" />
+                <button className={`menu-toggle ${scrolled ? 'scrolled' : ''}`} aria-label="Toggle menu">
+                    <Burger isOpen={menuOpen} direction="right" onClick={toggleMenu}>
+
+                    </Burger>
                 </button>
 
-                {/* <Burger isOpen={menuOpen} direction="right">
 
-                </Burger> */}
 
                 {/* Desktop Nav Links */}
                 <ul className="navbar-links desktop-only">
@@ -134,10 +133,7 @@ const Navbar = ({ onLanguageChange }) => {
             </div>
 
             {/* Slide-out Mobile Menu */}
-            <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-                <button className="close-btn" onClick={toggleMenu} aria-label="Close menu">
-                    <FaTimes size={28} color="#333" />
-                </button>
+            <div className={`mobile-menu ${menuOpen ? 'open' : ''} ${scrolled ? 'scrolled' : ''}`}>
                 <ul className="mobile-links">
                     {companyData?.navLinks?.map((link) => (
                         <li key={link.path}>
@@ -152,8 +148,13 @@ const Navbar = ({ onLanguageChange }) => {
                     </label>
                     <span className="lang-label">{language}</span>
                 </div>
-                <button type="button"
-                    className="get-started mobile" onClick={() => toast.info("This application is under development!")}>Get Started Now!</button>
+                <button
+                    type="button"
+                    className="get-started mobile"
+                    onClick={() => toast.info("This application is under development!")}
+                >
+                    Get Started Now!
+                </button>
             </div>
         </nav>
     );

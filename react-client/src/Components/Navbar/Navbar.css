@@ -41,7 +41,8 @@
 }
 
 .navbar.navbar-scrolled a,
-.navbar.navbar-scrolled div {
+.navbar.navbar-scrolled div 
+{
     color: black !important;
     transition: all 120ms ease-in-out;
 }
@@ -104,7 +105,7 @@
 }
 
 .get-started {
-    background-color: var(--primary-color);
+    background-color: var(--primary-contrast-color);
     color: white;
     padding: 0.5rem 1.2rem;
     border: none;
@@ -119,8 +120,9 @@
 }
 
 .lang-label {
+    padding-right: 1em;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--primary-contrast-color);
 }
 
 /* Toggle Switch */
@@ -187,22 +189,32 @@ input:checked+.slider::before {
     border-radius: 3px;
 }
 
-/* Slide-in mobile menu */
+
 .mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    transition: right 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 999;
+  position: fixed;
+  right: -100%;
+  width: 300px;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 999;
+  border-top-left-radius: 5px;
 }
+
+.mobile-menu.scrolled {
+  top: 8vh;
+  height: 92vh;
+}
+
+.mobile-menu:not(.scrolled) {
+  top: 10vh;
+  height: 90vh;
+}
+
 
 .mobile-menu ul {
     display: flex;
@@ -236,9 +248,21 @@ input:checked+.slider::before {
         display: none;
     }
 
+    .menu-toggle{
+          display: flex;
+        margin-right: 1em;
+    }
 
+    .menu-toggle:not(.scrolled) .burger-lines,
+    .menu-toggle:not(.scrolled) .burger-lines::before,
+    .menu-toggle:not(.scrolled) .burger-lines::after
+     {
+      background-color: var(--primary-contrast-color);
+    }
 
-    .menu-toggle {
-        display: flex;
+    .menu-toggle.scrolled .burger-lines,
+    .menu-toggle.scrolled .burger-lines::before,
+    .menu-toggle.scrolled .burger-lines::after{
+        background-color: var(--primary-contrast-color);
     }
 }
