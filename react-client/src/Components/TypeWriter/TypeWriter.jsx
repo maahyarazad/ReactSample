@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './TypeWriter.css';
+import Ollama_Microphone from "../Ollama_Microphone/Ollama_Microphone";
 
 const TypeWriter = () => {
     const slogans = [
@@ -21,18 +22,26 @@ const TypeWriter = () => {
 
 
     return (
-        <div className="typewriter-container">
-            <div className="typewriter">
-                <div>
-                    <p style={{
-                        width: `${slogans[currentIndex].length + 1}ch`,
+        <>
+            <div className="typewriter-container">
+                <div className="typewriter">
+                    <div>
+                        <p style={{
+                            width: `${slogans[currentIndex].length + 1}ch`,
 
-                    }}
-                    >{slogans[currentIndex]}</p>
+                        }}
+                        >{slogans[currentIndex]}</p>
+                        <div className="d-flex justify-content-center">
+
+                            <Ollama_Microphone />
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        </div>
 
+            </div>
+            
+        </>
     );
 };
 
