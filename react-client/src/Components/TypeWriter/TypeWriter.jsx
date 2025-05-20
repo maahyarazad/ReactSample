@@ -31,14 +31,14 @@ const TypeWriter = () => {
 
                         }}
                         >{slogans[currentIndex]}</p>
-                        <div className="d-flex justify-content-center">
-
-                            <Ollama_Microphone />
-                        </div>
+                        
                     </div>
 
                 </div>
+                  <div className="d-flex justify-content-center">
 
+                            <Ollama_Microphone />
+                        </div>      
             </div>
             
         </>

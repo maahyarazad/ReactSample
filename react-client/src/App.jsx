@@ -2,7 +2,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import About from './Pages/About';
-
+import { v4 as uuidv4 } from 'uuid';
 import Navbar from './Components/Navbar/Navbar';
 import BackToTop from './Components/BackToTop/BackToTop';
 import React, { useState, useEffect } from 'react';
@@ -15,7 +15,9 @@ import ParticleJsContainer from './Components/ParticleJsContainer/ParticleJsCont
 const App = () => {
     const [siteData, setSiteData] = useState(null);
     const [language, setLanguage] = useState('EN');
-    
+    const [sessionId, setSessionId] = useState(null);
+
+
     const server_endpoint = process.env.REACT_APP_SITE_DATA;
     useEffect(() => {
         axios.get(`${server_endpoint}?lang=${language}`)
@@ -30,6 +32,20 @@ const App = () => {
 
     useEffect(() => {}, [siteData]);
 
+    useEffect(() => {
+        let guid = localStorage.getItem('session-guid');
+        if (!guid) {
+            guid = uuidv4();
+            localStorage.setItem('session-guid', guid);
+        }
+        setSessionId(guid);
+    }, []);
+
+    useEffect(() => {
+    if (sessionId) {
+        axios.defaults.headers.common['X-Session-ID'] = sessionId;
+    }
+        }, [sessionId]);
 
     const handleLanguageChange = (value) => {
        setLanguage(value);
