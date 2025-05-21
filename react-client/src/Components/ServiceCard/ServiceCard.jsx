@@ -15,6 +15,7 @@ const ServiceCard = forwardRef(({
     showServicesList = true,
     clickable = false,
     hoverEffect = false,
+        fixHeight = false,
     className = ''
 }, ref) => {
 
@@ -25,9 +26,10 @@ const ServiceCard = forwardRef(({
     return (
         <div ref={ref} className={`cart-container ${className}` }>
             {clickable ? (
-                <a href={href} className={`iot-card ${hoverClass}`} >
+                <a href={href} className={`iot-card ${hoverClass} ${fixHeight ? 'fix-height' : '' }`} >
                     <div className="iot-card__image">
-                        <img src={imageSrc} alt={imageAlt} width={56} height={56} />
+                        <img src={imageSrc} alt={imageAlt} width={60} height={60} />
+                        
                     </div>
 
                     <h4
@@ -51,9 +53,9 @@ const ServiceCard = forwardRef(({
                     </a>
                 </a>
             ) : (
-                <div className={`iot-card ${hoverClass}`}>
+                <div className={`iot-card ${hoverClass} ${fixHeight ? 'fix-height' : '' }`}>
                     <div className="iot-card__image">
-                        <img src={imageSrc} alt={imageAlt} width={56} height={56} />
+                        <img src={imageSrc} alt={imageAlt} width={80} height={80} />
                     </div>
                     <h4 className="iot-card__title">{title}</h4>
                     <div className="iot-card__text">
@@ -62,8 +64,8 @@ const ServiceCard = forwardRef(({
                             <ul className="iot-card__list">
                                 {services.map((service, index) => (
                                     <div className="d-block flex-grow-1" key={index}>
-                                        <li>
-                                            <FaCheck className="check-icon" /> {service}
+                                        <li className="align-items-center d-flex">
+                                            <FaCheck className="check-icon me-2" /> {service}
                                         </li>
                                     </div>
                                 ))}

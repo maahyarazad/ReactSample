@@ -30,16 +30,18 @@ const TestimonialCarousel = ({ data }) => {
         // ),
         responsive: [
             {
-                breakpoint: 768, // Change slides visible for smaller screen sizes
-                settings: {
-                    slidesToShow: 1
-                }
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 2,
+                centerMode: false,   // disable center mode on smaller screens if needed
+            }
             },
             {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2
-                }
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                centerMode: false,
+            }
             }
         ]
     };

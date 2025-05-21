@@ -68,7 +68,7 @@
 .footer-links a,
 .footer-social a {
   text-decoration: none !important;
-  color: #333;
+  color: var(--primary-color);
   font-size: 14px;
   transition: color 0.2s ease-in-out;
 }
@@ -76,7 +76,7 @@
 .footer-nav a:hover,
 .footer-links a:hover,
 .footer-social a:hover {
-  color: var(--primary-color);
+  color: var(--primary-contrast-color);
 }
 
 .footer-social a i {
@@ -89,13 +89,13 @@
 }
 
 .footer-contact a {
-  color: #030303;
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-contact a:hover {
-  color: var(--primary-color);
+  color: var(--primary-contrast-color) !important;
 }
 
 /* Footer Bottom */

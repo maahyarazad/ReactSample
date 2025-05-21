@@ -107,7 +107,7 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
                     </label>
                     <span className="lang-label">{language}</span>
                 </div>
-                <button className="get-started" onClick={() => toast.info("This application is under development!")} type="button">Get Started Now!</button>
+                <button className="btn btn-primary-contrast" onClick={() => toast.info("This application is under development!")} type="button">Get Started Now!</button>
             </div>
 
             {/* Slide-out Mobile Menu */}

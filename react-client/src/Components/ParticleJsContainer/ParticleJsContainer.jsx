@@ -36,14 +36,14 @@ const ParticleJsContainer = ({ children }) => {
                 position: "fixed",
                 width: "100vw",
                 height: "100vh",
-                // background: "linear-gradient(rgb(0, 0, 0) 0%,  rgb(70, 70, 70) 100%)", // your gradient here
-                backgroundImage : `url(${background})`,
+                background: "linear-gradient(rgb(0, 0, 0) 0%,  rgb(70, 70, 70) 100%)", // your gradient here
+                // backgroundImage : `url(${background})`,
                  backgroundSize: "100% 100%",
                 zIndex: -1,
                 top: 0,
                 left: 0,
             }}>
-            {/* <Particles
+            <Particles
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}
@@ -119,7 +119,7 @@ const ParticleJsContainer = ({ children }) => {
                     },
                     detectRetina: true
                 }}
-            /> */}
+            />
         </div>
 
     );

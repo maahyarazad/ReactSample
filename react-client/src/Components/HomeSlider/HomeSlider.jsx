@@ -17,7 +17,7 @@ const HomeSlider = forwardRef(({ id, title, text, image }, ref) => {
             <div className="slider-content">
                 <h1 className="slider-title">{title}</h1>
                 <p className="slider-text">{text}</p>
-                <button className="get-started-button" onClick={() => toast.info("This application is under development!")}>Get Started</button>
+                <button className="btn btn-primary" onClick={() => toast.info("This application is under development!")}>Get Started</button>
             </div>
         </div>
     );

@@ -64,9 +64,9 @@
     margin-bottom: 1.5rem;
     border-radius: 5px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.2); /* semi-transparent white */
-    backdrop-filter: blur(5px);          /* the actual blur/glass effect */
-    -webkit-backdrop-filter: blur(5px);  /* Safari support */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(5px);          
+    -webkit-backdrop-filter: blur(5px); 
 }
 
 .lets-start {
@@ -74,11 +74,14 @@
     color: var(--primary-contrast-color) !important;
 }
 
-
+.request-form-section a {
+    color: var(--primary-contrast-color) !important;
+}
 
 
 .request-form-section li {
     font-size: 1.5rem;
+    line-height: 3rem;
 }
 
 
@@ -87,9 +90,10 @@
     color: white;
     cursor: pointer;
     position: relative;
+    transition: all 0.1s ease-in;
 }
 
-.attachment-button::after {
+/* .attachment-button::after {
   content: "";
   position: absolute;
   width: 0;
@@ -98,15 +102,18 @@
   bottom: 5px;
   background-color: white;
   transition: width 0.3s ease;
-}
+} */
 
-.attachment-button:hover::after{
-  width: 100%;
+.attachment-button:hover{
+  color: var(--primary-contrast-color) !important;
+  transform: scale(1.1);
+  transition: all 0.1s ease-in;
 }
 
 
 @media screen and (max-width: 1024px) {
     .request-form-section li {
         font-size: inherit !important;
+            line-height: 1.5rem !important
     }
 }
