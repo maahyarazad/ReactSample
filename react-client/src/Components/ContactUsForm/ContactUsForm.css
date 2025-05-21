@@ -64,7 +64,7 @@
     margin-bottom: 1.5rem;
     border-radius: 5px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.1); /* semi-transparent white */
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent white */
     backdrop-filter: blur(5px);          /* the actual blur/glass effect */
     -webkit-backdrop-filter: blur(5px);  /* Safari support */
 }

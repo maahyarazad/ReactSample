@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 import Burger from '@animated-burgers/burger-rotate'
 // don't forget the styles
 import '@animated-burgers/burger-rotate/dist/styles.css'
+import logo from '../../Assets/palmx-logo.jpeg'
+
 
 const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage }) => {
 
@@ -69,8 +71,9 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
     return (
         <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
             <div className="navbar-section-left">
-                <div className="navbar-logo">
-                    {companyName && companyName}
+                <div className="logo-container-header">
+                    {/* {companyName && companyName} */}
+                   <img src={logo} alt="Company Logo" className="header-logo" />
                 </div>
             </div>
 

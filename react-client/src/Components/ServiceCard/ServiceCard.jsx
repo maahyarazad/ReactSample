@@ -15,6 +15,7 @@ const ServiceCard = forwardRef(({
     showServicesList = true,
     clickable = false,
     hoverEffect = false,
+    className = ''
 }, ref) => {
 
 
@@ -22,9 +23,9 @@ const ServiceCard = forwardRef(({
 
 
     return (
-        <div ref={ref}>
+        <div ref={ref} className={`cart-container ${className}` }>
             {clickable ? (
-                <a href={href} className={`iot-card${hoverClass}`} >
+                <a href={href} className={`iot-card ${hoverClass}`} >
                     <div className="iot-card__image">
                         <img src={imageSrc} alt={imageAlt} width={56} height={56} />
                     </div>
@@ -50,7 +51,7 @@ const ServiceCard = forwardRef(({
                     </a>
                 </a>
             ) : (
-                <div className={`iot-card ${hoverClass}}`}>
+                <div className={`iot-card ${hoverClass}`}>
                     <div className="iot-card__image">
                         <img src={imageSrc} alt={imageAlt} width={56} height={56} />
                     </div>

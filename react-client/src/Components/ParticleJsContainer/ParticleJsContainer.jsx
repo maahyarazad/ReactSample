@@ -1,7 +1,8 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-
+import bgDesktop from '../../../src/Assets/bg-3-w.png'
+import bgMobile from '../../../src/Assets/bg-1.png'
 const ParticleJsContainer = ({ children }) => {
     const particlesInit = useCallback(async (engine) => {
         console.log(engine);
@@ -12,18 +13,37 @@ const ParticleJsContainer = ({ children }) => {
         console.log(container);
     }, []);
 
+
+    const [background, setBackground] = useState(bgDesktop);
+
+    useEffect(() => {
+        const updateBackground = () => {
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 768) {
+            setBackground(bgMobile);
+        } else {
+            setBackground(bgDesktop);
+        }
+        };
+
+        updateBackground();
+        window.addEventListener("resize", updateBackground); 
+    }, []);
+
     return (
         <div
             style={{
                 position: "fixed",
                 width: "100vw",
                 height: "100vh",
-                background: "linear-gradient(rgb(0, 0, 0) 0%,  rgb(70, 70, 70) 100%)", // your gradient here
+                // background: "linear-gradient(rgb(0, 0, 0) 0%,  rgb(70, 70, 70) 100%)", // your gradient here
+                backgroundImage : `url(${background})`,
+                 backgroundSize: "100% 100%",
                 zIndex: -1,
                 top: 0,
                 left: 0,
             }}>
-            <Particles
+            {/* <Particles
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}
@@ -99,7 +119,7 @@ const ParticleJsContainer = ({ children }) => {
                     },
                     detectRetina: true
                 }}
-            />
+            /> */}
         </div>
 
     );

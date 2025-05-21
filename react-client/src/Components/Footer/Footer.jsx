@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Footer.css';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-
+import logo from '../../../src/Assets/palmx-logo.jpeg'
 const Footer = ({ footerData }) => {
 
     useEffect(() => {}, [footerData]);
@@ -29,7 +29,9 @@ const Footer = ({ footerData }) => {
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-company">
-                    <img src={footerData.companyLogo} alt="Company Logo" className="footer-logo" />
+                    <div className='logo-container-footer'>
+                        <img src={logo} alt="Company Logo" className="footer-logo" />
+                    </div>
                     <p>{footerData.about}</p>
                 </div>
                 <div className="footer-social">

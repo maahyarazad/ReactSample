@@ -4,7 +4,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --primary-color: #191919;
-  --primary-contrast-color: #fc6f03;
+  --primary-contrast-color: #5B2330;
+  --logo-secondary-collor: #5B2330;
 }
 
 code {
@@ -19,13 +20,6 @@ code {
 }
 
 
-.slide-in-left {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
 
-.slide-in-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+
+
