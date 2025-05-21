@@ -9,7 +9,7 @@ const ParticleJsContainer = ({ children }) => {
     }, []);
 
     const particlesLoaded = useCallback(async (container) => {
-        await console.log(container);
+        console.log(container);
     }, []);
 
     return (
@@ -18,7 +18,7 @@ const ParticleJsContainer = ({ children }) => {
                 position: "fixed",
                 width: "100vw",
                 height: "100vh",
-                background: "linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(13, 71, 161, 1) 35%, rgba(30, 136, 229, 1) 100%)", // your gradient here
+                background: "linear-gradient(rgb(0, 0, 0) 0%,  rgb(70, 70, 70) 100%)", // your gradient here
                 zIndex: -1,
                 top: 0,
                 left: 0,

@@ -1,8 +1,10 @@
-import React from "react";
+
 import "./ServiceCard.css";
 import { FaCheck } from "react-icons/fa";
+import { forwardRef, useEffect, useRef, useState } from 'react';
 
-const ServiceCard = ({
+
+const ServiceCard = forwardRef(({
     href,
     imageSrc,
     imageAlt,
@@ -12,19 +14,26 @@ const ServiceCard = ({
     linkText,
     showServicesList = true,
     clickable = false,
-    hoverEffect = false, 
-}) => {
-    
+    hoverEffect = false,
+}, ref) => {
+
+
     const hoverClass = hoverEffect ? "iot-card--hover" : "";
 
+
     return (
-        <>
+        <div ref={ref}>
             {clickable ? (
-                <a href={href} className={`iot-card ${hoverClass}`}>
+                <a href={href} className={`iot-card${hoverClass}`} >
                     <div className="iot-card__image">
                         <img src={imageSrc} alt={imageAlt} width={56} height={56} />
                     </div>
-                    <h4 className="iot-card__title">{title}</h4>
+
+                    <h4
+                        className={`iot-card__title}`}>
+                        {title}
+                    </h4>
+
                     <div className="iot-card__text">
                         <p>{description}</p>
                         {showServicesList && services?.length > 0 && (
@@ -41,7 +50,7 @@ const ServiceCard = ({
                     </a>
                 </a>
             ) : (
-                <div className={`iot-card ${hoverClass}`}>
+                <div className={`iot-card ${hoverClass}}`}>
                     <div className="iot-card__image">
                         <img src={imageSrc} alt={imageAlt} width={56} height={56} />
                     </div>
@@ -60,25 +69,25 @@ const ServiceCard = ({
                             </ul>
                         )}
                     </div>
-                   {
-                    !linkText?.trim() ? (
-                       
-                        <></>  
-                    ) : (
+                    {
+                        !linkText?.trim() ? (
 
-                        <a href={href} className="iot-card__link">
-                        {linkText}
-                        <span>→</span>
-                        </a>
+                            <></>
+                        ) : (
+
+                            <a href={href} className="iot-card__link">
+                                {linkText}
+                                <span>→</span>
+                            </a>
                         )
                     }
 
-                    
-                    
+
+
                 </div>
             )}
-        </>
+        </div>
     );
-};
+});
 
 export default ServiceCard;

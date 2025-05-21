@@ -54,7 +54,7 @@
     /* the actual blur/glass effect */
     -webkit-backdrop-filter: blur(10px);
     border-radius: 5px;
-    color: black !important;
+    color: var(--primary-contrast-color) !important;
 }
 
 
@@ -68,13 +68,13 @@
 
 .navbar:not(.navbar-scrolled) .navbar-links.desktop-only a:hover {
     transition: all 120ms ease-in-out;
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     /* semi-transparent white */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1px);
     /* the actual blur/glass effect */
-    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(1px);
     border-radius: 5px;
-    color: black !important;
+    color: var(--primary-contrast-color) !important;
 }
 
 

@@ -16,7 +16,7 @@ const TestimonialCarousel = ({ data }) => {
         draggable: true, // Enable drag feature
         touchThreshold: 10, // Touch sensitivity for swipe
         autoplay: true, // Enable auto change
-        autoplaySpeed: 99999999, // Time between slide transitions in ms (3 seconds)
+        autoplaySpeed: 3000, // Time between slide transitions in ms (3 seconds)
         arrows: false,
         //  prevArrow: (
         //     <div className="custom-arrow prev-arrow">

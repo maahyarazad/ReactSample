@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', 'SegoeUI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary-color: #0D47A1;
+  --primary-color: #191919;
   --primary-contrast-color: #fc6f03;
 }
 
@@ -16,4 +16,16 @@ code {
 .btn-primary-contrast{
   background-color: var(--primary-contrast-color) !important;
   color: aliceblue !important;
+}
+
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }

@@ -23,6 +23,8 @@
   margin-bottom: 1rem;
   width: 56px;
   height: 56px;
+  color: var(--primary-color) !important;
+  background-color: white;
 }
 
 .iot-card__title {
@@ -51,7 +53,7 @@
 
 .iot-card__link {
   margin-top: 1rem;
-  color: #2563EB; /* blue-600 */
+  color: var(--primary-color);
   font-weight: 500;
   display: inline-flex;
   align-items: center;
