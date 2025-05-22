@@ -1,13 +1,29 @@
 // HomeSlider.jsx
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState, useRef, useEffect } from 'react';
 import './HomeSlider.css';
-import { toast } from 'react-toastify';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const HomeSlider = forwardRef(({ id, title, text, image }, ref) => {
+const HomeSlider = forwardRef(({ id, title, text, image, className }, ref) => {
+
+
+
+    const GetStarted = (e) => {
+        var element = document.querySelector("section.request-form-section");
+        if (element) {
+            const yOffset = -100;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({ top: y, behavior: "smooth" });
+
+        }
+    }
+
+
+    
+
     return (
-        <div ref={ref} id={id} className="home-slider">
+        <div ref={ref} id={id} className={`home-slider ${className}`}>
             <LazyLoadImage
                 src={image}
                 alt={title}
@@ -16,8 +32,13 @@ const HomeSlider = forwardRef(({ id, title, text, image }, ref) => {
             />
             <div className="slider-content">
                 <h1 className="slider-title">{title}</h1>
-                <p className="slider-text">{text}</p>
-                <button className="btn btn-primary" onClick={() => toast.info("This application is under development!")}>Get Started</button>
+                <h2 className="slider-text">{text}</h2>
+                <div className="d-flex justify-content-end button-wrapper">
+                    <button className="btn btn-lg btn-primary-contrast"
+                        onClick={GetStarted}
+                    >
+                        Get Started</button>
+                </div>
             </div>
         </div>
     );

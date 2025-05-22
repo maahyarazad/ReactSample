@@ -1,6 +1,6 @@
 :root {
   --primary-color: #191919;
-  --primary-contrast-color: #06D6A0;
+  --primary-contrast-color: #FB6162;
   --primary-contrast-color-1: #FFD166;
   --logo-secondary-collor: #5B2330;
   --secondary-contracts-color: #06D6A0;
@@ -9,7 +9,7 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'SegoeUI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'FigtreeVF', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,14 +22,14 @@ code {
 
 .btn-primary-contrast{
   background-color: var(--primary-contrast-color) !important;
-  color: rgb(255, 255, 255) !important;
+  color: rgb(23, 23, 23) !important;
   transition: all 100ms ease-in-out;
 }
 
 .btn-primary-contrast:hover{
-  background-color: white !important;
-  color: var(--primary-contrast-color) !important;
-  box-shadow: -2px 3px 8px var(--primary-color);
+  background-color: rgb(23, 23, 23) !important;
+  color: white !important;
+  box-shadow: -2px 3px 8px white;
     transition: all 100ms ease-in-out;
 }
 

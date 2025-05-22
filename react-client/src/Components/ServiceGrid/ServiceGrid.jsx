@@ -9,32 +9,30 @@ const ServiceGrid = ({ data, containerTitle, serviceKeyName, gridClass }) => {
     const cardRefs = useRef([]);
     const [visibleCards, setVisibleCards] = useState([]);
 
-  useEffect(() => {
-    const options = {
-        threshold: 0.35,
-    };
+    useEffect(() => {
+        const options = { threshold: 0.35 };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const index = cardRefs.current.indexOf(entry.target);
-                if (index !== -1 && !visibleCards.includes(index)) {
-                    console.log(`Card ${index} is visible`);
-                    setVisibleCards((prev) => [...prev, index]);
-                    observer.unobserve(entry.target); 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const index = cardRefs.current.indexOf(entry.target);
+                    if (index !== -1 && !visibleCards.includes(index)) {
+                        console.log(`Card ${index} is visible`);
+                        setVisibleCards((prev) => [...prev, index]);
+                        observer.unobserve(entry.target);
+                    }
                 }
-            }
+            });
+        }, options);
+
+        cardRefs.current.forEach((ref) => {
+            if (ref) observer.observe(ref);
         });
-    }, options);
 
-    cardRefs.current.forEach((ref) => {
-        if (ref) observer.observe(ref);
-    });
-
-    return () => {
-        observer.disconnect(); // Clean up the entire observer
-    };
-}, []);
+        return () => {
+            observer.disconnect(); // Clean up the entire observer
+        };
+    }, []);
 
     if (!data) return null;
 
@@ -49,10 +47,10 @@ const ServiceGrid = ({ data, containerTitle, serviceKeyName, gridClass }) => {
             <div className="row service-card-container">
                 {data.map((service, index) => (
                     <div className={gridClass} key={index}>
-                        <ServiceCard {...service} 
+                        <ServiceCard {...service}
                             ref={(el) => (cardRefs.current[index] = el)}
                             className={visibleCards.includes(index) ? 'show' : ''}
-                         />
+                        />
                     </div>
                 ))}
             </div>

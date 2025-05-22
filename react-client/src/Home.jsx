@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import HomeSlider from './Components/HomeSlider/HomeSlider';
 import ServiceGrid from './Components/ServiceGrid/ServiceGrid';
 import gsap from 'gsap'
@@ -10,24 +10,52 @@ import TypeWriter from './Components/TypeWriter/TypeWriter';
 const Home = ({ siteData }) => {
 
     useEffect(() => { }, [siteData]);
+    const silderRefs = useRef([]);
+    const [visibleSliders, setVisibleSliders] = useState([]);
+    useEffect(() => {
+        const options = { threshold: 0.35 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const index = silderRefs.current.indexOf(entry.target);
+                    if (index !== -1 && !visibleSliders.includes(index)) {
+                        console.log(`Card ${index} is visible`);
+                        setVisibleSliders((prev) => [...prev, index]);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, options);
+
+        silderRefs.current.forEach((ref) => {
+            if (ref) observer.observe(ref);
+        });
+
+        return () => {
+            observer.disconnect(); // Clean up the entire observer
+        };
+    }, []);
+
 
     if (!siteData) return null;
 
     return (
         <>
 
-            {/* {homeSliders.map((slider) => (
+            {siteData.homeSliders.map((slider, index) => (
                 <HomeSlider
                     key={slider.id}
                     id={`home-slide-${slider.id}`}
                     title={slider.title}
                     text={slider.text}
                     image={slider.image}
-                    ref={(el) => (sliderRefs.current[slider.id - 1] = el)}
+                    className={visibleSliders.includes(index) ? 'show' : ''}
+                    ref={(el) => (silderRefs.current[slider.id - 1] = el)}
                 />
-            ))} */}
+            ))}
 
-            <TypeWriter />
+            {/* <TypeWriter /> */}
 
             <div className="container mx-auto px-4 py-8">
                 <ServiceGrid
@@ -38,7 +66,7 @@ const Home = ({ siteData }) => {
             </div>
 
             <div className="container mx-auto px-4 py-8">
-                <TestimonialCarousel data={siteData.testimonials}/>
+                <TestimonialCarousel data={siteData.testimonials} />
             </div>
 
             <div className="container mx-auto px-4 py-8">
