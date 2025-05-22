@@ -1,5 +1,5 @@
-import { FaArrowRight } from "react-icons/fa"
-import { FaCross } from "react-icons/fa";
+import { LuSquareArrowUpRight } from "react-icons/lu";
+import { IoMdClose } from "react-icons/io";
 import Angel from "../../Assets/angel.png";
 import React, { useState, useRef, useEffect } from "react";
 import WhiteReward from "../../Assets/whitereward.png";
@@ -49,7 +49,7 @@ const ShowCases = () => {
                         <div className="align-self-end">
 
                             <p> Website</p>
-                            <a onClick={(e) => handleOpen(e)} className="" src="https://www.angels-bureau.com/">
+                            <a onClick={(e) => handleOpen(e)} className="a-button" src="https://www.angels-bureau.com/">
                                 Angel Bureau
                             </a>
 
@@ -57,8 +57,8 @@ const ShowCases = () => {
 
                         <div className="align-self-end">
 
-                            <a target="_blank" href="https://www.angels-bureau.com/">
-                                <FaArrowRight size={30} />
+                            <a target="_blank" href="https://www.angels-bureau.com/" className="a-link">
+                                <LuSquareArrowUpRight size={30} />
                             </a>
                         </div>
                     </div>
@@ -71,15 +71,15 @@ const ShowCases = () => {
                         <div className="align-self-end">
 
                             <p> Website</p>
-                            <a onClick={(e) => handleOpen(e)} className="" src="https://www.whitereward.com/">
+                            <a onClick={(e) => handleOpen(e)} className="a-button" src="https://www.whitereward.com/">
                                 White Reward
                             </a>
                         </div>
 
                         <div className="align-self-end">
 
-                            <a target="_blank" href="https://www.whitereward.com/">
-                                <FaArrowRight size={30} />
+                            <a target="_blank" href="https://www.whitereward.com/" className="a-link">
+                                <LuSquareArrowUpRight size={30} />
                             </a>
                         </div>
                     </div>
@@ -92,17 +92,14 @@ const ShowCases = () => {
 
                 <iframe
                     ref={iframeRef}
-                    src="https://example.com"
+                    src={frameSrc}
                     title="Full Page Iframe"
                     className={`fullscreen-iframe ${showIframe ? "visible" : ""}`}
                 />
 
-                {/* Close button overlay (only when iframe is visible) */}
-                {showIframe && (
-                    <button className="close-iframe" onClick={handleClose}>
-                        <FaCross size={18} />
+                <button className={`close-iframe ${showIframe ? "visible" : ""}`} onClick={handleClose}>
+                        <IoMdClose size={20} />
                     </button>
-                )}
             </div>
 
         </>
