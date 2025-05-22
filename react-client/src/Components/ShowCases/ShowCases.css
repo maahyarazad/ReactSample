@@ -1,0 +1,88 @@
+.show-case-container{
+    position: relative; 
+    display: inline-block; 
+    padding: 1%;
+  /* width: 50%; */
+}
+
+
+.show-case-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Hide by default */
+.show-case-container .info-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); 
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+  padding: 2rem;
+}
+
+/* On hover, fade it in */
+.show-case-container:hover .info-panel {
+
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.info-panel a{
+    text-decoration: none;
+    color: var(--primary-contrast-color);
+}
+
+.show-case{
+      flex-direction: row !important;
+      
+    }
+
+
+@media (max-width: 1024px) {
+    .show-case{
+      flex-direction: column!important;
+      
+    }
+  }
+
+
+  
+
+.fullscreen-iframe {
+  position: fixed;
+  bottom: 0;
+  left: 10vw;            /* since width is 80vw, centering horizontally */
+  width: 80vw;
+  height: 80vh;         /* use 100vh (not 800vh) so it fills the viewport */
+  border: none;
+  z-index: 9999;
+  
+  /* Start translated 100% downward (i.e. fully out of view) */
+  transform: translateY(100%);
+  transition: transform 0.5s ease-in-out;
+  
+  /* Keep it rendered but not visible or interactive */
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* When “visible” is added, slide it into place */
+.fullscreen-iframe.visible {
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  background-color: #fff;
+}

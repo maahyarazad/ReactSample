@@ -9,7 +9,7 @@ import { Paperclip } from 'lucide-react';
 import { toast } from 'react-toastify';
 
 
-const ContactForm = () => {
+const ContactForm = ({sectionId}) => {
     const fileInputRef = useRef(null);
 
     const initialValues = {
@@ -61,7 +61,7 @@ const ContactForm = () => {
     };
 
     return (
-        <section className="container py-5 request-form-section">
+        <section className="container py-5 request-form-section" id={sectionId}>
 
             <div className="row">
                 <div className="col-12 col-md-6 p-4">

@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import TestimonialCarousel from './Components/TestemonialCarousel/TestemonialCarousel';
 import ContactUsForm from './Components/ContactUsForm/ContactUsForm'
 import TypeWriter from './Components/TypeWriter/TypeWriter';
+import ShowCases from './Components/ShowCases/ShowCases';
 
 
 const Home = ({ siteData }) => {
@@ -41,8 +42,7 @@ const Home = ({ siteData }) => {
     if (!siteData) return null;
 
     return (
-        <>
-
+        <div>
             {siteData.homeSliders.map((slider, index) => (
                 <HomeSlider
                     key={slider.id}
@@ -57,19 +57,23 @@ const Home = ({ siteData }) => {
 
             {/* <TypeWriter /> */}
 
-            <div className="container mx-auto px-4 py-8">
+            <div className="container mx-auto px-4 py-4" id="section-1">
                 <ServiceGrid
                     data={siteData.serviceCards_1}
                     containerTitle={"Industries we help"}
                     serviceKeyName={"serviceCards_1"}
                     gridClass={"col-12 col-sm-6 col-lg-4 mb-4"} />
             </div>
+            
+            <div className="container mx-auto px-4 py-4" id="section-2">
+                <ShowCases />
+            </div>
 
-            <div className="container mx-auto px-4 py-8">
+            <div className="container mx-auto px-4 py-4">
                 <TestimonialCarousel data={siteData.testimonials} />
             </div>
 
-            <div className="container mx-auto px-4 py-8">
+            <div className="container mx-auto px-4 py-4">
                 <ServiceGrid
                     data={siteData.serviceCards_2}
                     containerTitle={"Advanced tech we work with"}
@@ -78,7 +82,7 @@ const Home = ({ siteData }) => {
             </div>
 
             <ContactUsForm />
-        </>
+        </div>
     );
 };
 

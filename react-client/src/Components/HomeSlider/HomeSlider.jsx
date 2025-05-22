@@ -7,7 +7,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const HomeSlider = forwardRef(({ id, title, text, image, className }, ref) => {
 
 
-
     const GetStarted = (e) => {
         var element = document.querySelector("section.request-form-section");
         if (element) {
@@ -19,8 +18,6 @@ const HomeSlider = forwardRef(({ id, title, text, image, className }, ref) => {
         }
     }
 
-
-    
 
     return (
         <div ref={ref} id={id} className={`home-slider ${className}`}>

@@ -77,7 +77,7 @@ const App = () => {
                 pauseOnHover
                 theme="light"
             />
-
+        
             <Navbar onLanguageChange={handleLanguageChange} 
                             navbarLinks={siteData.navLinks}
                             currentlanguage={language} 

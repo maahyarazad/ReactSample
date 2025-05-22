@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { toast } from 'react-toastify';
 // React Component
 import Burger from '@animated-burgers/burger-rotate'
 // don't forget the styles
@@ -14,7 +11,6 @@ import logo from '../../Assets/palmx-logo.jpeg'
 
 const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage }) => {
 
-    gsap.registerPlugin(ScrollToPlugin);
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [language, setLanguage] = useState(currentlanguage);
@@ -40,8 +36,6 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
     }
 
 
-
-    // Switch language function
     const switchLanguage = () => {
         const newLang = language === 'EN' ? 'DE' : 'EN';
         setLanguage(newLang);
@@ -53,19 +47,13 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
 
     const handleScroll = (key) => {
 
-        const targetElement = document.getElementById(`home-slide-${key}`);
+        const targetElement = document.getElementById(`section-${key}`);
+        if(targetElement){
+            const y = targetElement.getBoundingClientRect().top + window.pageYOffset;
 
-        console.log(targetElement);
-
-        if (targetElement) {
-            gsap.to(window, {
-                duration: 1,
-                scrollTo: { y: targetElement, offsetY: 80 },
-                ease: 'power2.out'
-            });
-        } else {
-            console.error('Element not found for key:', key);
+            window.scrollTo({ top: y, behavior: "smooth" });        
         }
+        
     };
 
     useEffect(() => { }, [companyName, navbarLinks]);
@@ -130,7 +118,7 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
                 <ul className="mobile-links">
                     {navbarLinks?.map((link) => (
                         <li key={link.path}>
-                            <Link to={link.path} onClick={toggleMenu}>{link.label}</Link>
+                            <Link onClick={() => handleScroll(link.id)}>{link.label}</Link>
                         </li>
                     ))}
                 </ul>
