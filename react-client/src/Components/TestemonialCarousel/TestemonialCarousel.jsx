@@ -32,7 +32,7 @@ const TestimonialCarousel = ({ data }) => {
             {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 2,
+                slidesToShow: 1,
                 centerMode: false,   // disable center mode on smaller screens if needed
             }
             },

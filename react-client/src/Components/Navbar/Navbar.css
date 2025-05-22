@@ -33,7 +33,7 @@
 
 
 .navbar.navbar-scrolled .navbar-links.desktop-only a {
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 0.5em 0em 0.5em 0em;
     color: black !important;
     transition: all 120ms ease-in-out;
@@ -59,7 +59,7 @@
 
 
 .navbar:not(.navbar-scrolled) .navbar-links.desktop-only a {
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 0.5em 0em 0.5em 0em;
     color: #fff !important;
     transition: all 120ms ease-in-out;

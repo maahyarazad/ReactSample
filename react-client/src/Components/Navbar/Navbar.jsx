@@ -22,7 +22,22 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
 
     // Toggle the mobile menu
     const toggleMenu = () => setMenuOpen(!menuOpen);
+    const GetStarted = (e) => {
+        var element = document.querySelector("section.request-form-section");
+        if (element) {
+            const yOffset = -100;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
+            window.scrollTo({ top: y, behavior: "smooth" });
+
+            const menu = document.querySelector(".mobile-menu.open");
+
+            if (menu) {
+                // menu.classList.remove("open");
+                setMenuOpen(false);
+            }
+        }
+    }
 
 
 
@@ -73,7 +88,7 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
             <div className="navbar-section-left">
                 <div className="logo-container-header">
                     {/* {companyName && companyName} */}
-                   <img src={logo} alt="Company Logo" className="header-logo" />
+                    <img src={logo} alt="Company Logo" className="header-logo" />
                 </div>
             </div>
 
@@ -107,7 +122,7 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
                     </label>
                     <span className="lang-label">{language}</span>
                 </div>
-                <button className="btn btn-primary-contrast" onClick={() => toast.info("This application is under development!")} type="button">Get Started Now!</button>
+                <button className="btn btn-primary-contrast" onClick={GetStarted} type="button">Get Started Now!</button>
             </div>
 
             {/* Slide-out Mobile Menu */}
@@ -129,7 +144,7 @@ const Navbar = ({ companyName, navbarLinks, onLanguageChange, currentlanguage })
                 <button
                     type="button"
                     className="get-started mobile"
-                    onClick={() => toast.info("This application is under development!")}
+                    onClick={GetStarted}
                 >
                     Get Started Now!
                 </button>

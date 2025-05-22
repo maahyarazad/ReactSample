@@ -45,7 +45,7 @@ const BackToTop = () => {
       <svg className="progress-ring" width="60" height="60">
         <circle
           className="progress-ring__circle"
-          stroke="white"
+          stroke="#06D6A0"
           strokeWidth="4"
           fill="transparent"
           r={radius}

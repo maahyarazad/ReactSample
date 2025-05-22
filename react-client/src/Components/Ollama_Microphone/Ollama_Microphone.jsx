@@ -19,6 +19,22 @@ const Ollama_Microphone = () => {
     const analyserRef = useRef(null)
     const sourceRef = useRef(null)
 
+
+
+    const [colorList, setColorList] = useState([]);
+
+    useEffect(() => {
+        const root = document.documentElement;
+
+        const primaryColor = getComputedStyle(root).getPropertyValue("--primary-color").trim();
+        const contrastColor = getComputedStyle(root).getPropertyValue("--primary-contrast-color").trim();
+
+        const colors = [primaryColor, contrastColor];
+        setColorList(colors);
+        
+    }, []);
+
+
     // const handleClick = async () => {
     //     try {
 
@@ -73,7 +89,7 @@ const Ollama_Microphone = () => {
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
             ctx.lineWidth = 1
-            ctx.strokeStyle = '#fc6f03'
+            ctx.strokeStyle = `${colorList[1]}`
             ctx.beginPath()
 
             const sliceWidth = canvas.width / bufferLength
@@ -181,10 +197,10 @@ const Ollama_Microphone = () => {
                         </div>
                     </div>
 
-                    <div className={`${!responseData ? "invisible" : "visible"} type-writer-ollama`}>
+                    <div className={`${!responseData ? "d-none" : "block"} type-writer-ollama`}>
                         <div className="typewriter-ollama">
                             <p className={responseData ? "show" : ""}
-                            >{responseData}
+                                >{responseData}
                             </p>
 
                         </div>
@@ -196,7 +212,7 @@ const Ollama_Microphone = () => {
 
             <div className=""
                 style={{
-                    visibility: recording ? "visible" : "hidden",
+                    display: recording ? "block" : "none",
                     width: recording ? "400px" : "0px",
                     opacity: recording ? 1 : 0,
                     transition: "opacity 0.3s ease",

@@ -45,7 +45,13 @@ const App = () => {
     if (sessionId) {
         axios.defaults.headers.common['X-Session-ID'] = sessionId;
     }
-        }, [sessionId]);
+    }, [sessionId]);
+
+
+    useEffect(() => {
+        document.title = "PalmX Software";
+    }, []);
+
 
     const handleLanguageChange = (value) => {
        setLanguage(value);
@@ -61,7 +67,7 @@ const App = () => {
 
             <ToastContainer
                 position="top-right"
-                autoClose={3000}
+                autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
