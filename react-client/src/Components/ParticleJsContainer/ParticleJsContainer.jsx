@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import bgDesktop from '../../../src/Assets/bg-3-w.png'
+import bgDesktop from '../../../src/Assets/bg-new.png'
 import bgMobile from '../../../src/Assets/bg-1.png'
 const ParticleJsContainer = ({ children }) => {
     const particlesInit = useCallback(async (engine) => {
